@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Quiz Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Quiz Generator</h1>
+            <p>Upload a PowerPoint presentation and generate quizzes from its content</p>
+        </header>
+
+        <main>
+            <section id="upload-section" class="card">
+                <h2>Upload PowerPoint</h2>
+                <form id="upload-form" enctype="multipart/form-data">
+                    <div class="file-input-wrapper">
+                        <input type="file" id="file-input" name="file" accept=".pptx" required>
+                        <label for="file-input" class="file-label">Choose PPTX File</label>
+                        <span id="file-name">No file chosen</span>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Upload & Extract Text</button>
+                </form>
+            </section>
+
+            <section id="preview-section" class="card" style="display: none;">
+                <h2>Extracted Content Preview</h2>
+                <div id="file-info"></div>
+                <div id="slides-container"></div>
+                <button id="generate-quiz-btn" class="btn btn-success" style="display: none;">
+                    Generate Quiz from Content
+                </button>
+            </section>
+
+            <section id="quiz-section" class="card" style="display: none;">
+                <h2>Generated Quiz</h2>
+                <div id="quiz-container">
+                    <div id="quiz-title"></div>
+                    <div id="questions-container"></div>
+                    <button id="submit-quiz" class="btn btn-success" style="display: none;">Submit Answers</button>
+                </div>
+            </section>
+
+            <section id="result-section" class="card" style="display: none;">
+                <h2>Results</h2>
+                <div id="result-container"></div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 AI Quiz Generator. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
